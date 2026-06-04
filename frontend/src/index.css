@@ -1,0 +1,172 @@
+@import "tailwindcss";
+
+@theme {
+  --color-basedark: #09090b; /* Sleek obsidian/matte black bg */
+  --color-one: #6366f1; /* Premium indigo accent */
+  --color-two: #a855f7; /* Premium violet accent */
+  --color-maintxt: #f4f4f5; /* Clean light gray text */
+}
+
+body {
+  font-family: "Montserrat", system-ui, sans-serif;
+  background-color: #09090b;
+  color: #f4f4f5;
+}
+
+.font-montserrat {
+  font-family: "Montserrat", system-ui, sans-serif;
+}
+
+/* 🔥 Chrome autofill FULL override */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill {
+  -webkit-text-fill-color: #f4f4f5 !important; /* maintxt */
+  caret-color: #f4f4f5 !important;
+
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+  box-shadow: 0 0 0px 1000px transparent inset !important;
+
+  background-color: transparent !important;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+@keyframes dropdown {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-dropdown {
+  animation: dropdown 300ms ease-in-out forwards;
+}
+
+/* ========================================================
+   PREMIUM GLASSMORPHISM & ACCENT STYLE OVERRIDES
+   ======================================================== */
+
+/* 1. Translucent Dark Glass Containers */
+.bg-one\/50 {
+  background-color: rgba(20, 20, 25, 0.6) !important;
+  backdrop-filter: blur(16px) saturate(120%);
+  -webkit-backdrop-filter: blur(16px) saturate(120%);
+}
+
+/* 2. Micro-Borders for Premium Styling */
+.border-one {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* 3. Inputs & Inner Control Panels */
+.bg-two\/70 {
+  background-color: rgba(255, 255, 255, 0.03) !important;
+  backdrop-filter: blur(8px);
+}
+.bg-two\/90 {
+  background-color: rgba(13, 13, 17, 0.95) !important;
+  backdrop-filter: blur(12px);
+}
+.bg-two {
+  background-color: #0d0d11 !important;
+}
+
+/* 4. Dropdowns & Menus */
+.animate-dropdown, ul.absolute {
+  background-color: rgba(15, 15, 20, 0.95) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7), 
+              0 1px 1px 0 rgba(255, 255, 255, 0.05) inset !important;
+}
+
+/* 5. Inputs active states & focus styling */
+.focus-within\:ring-one:focus-within,
+.focus-within\:ring-maintxt:focus-within {
+  --tw-ring-color: rgba(168, 85, 247, 0.5) !important;
+  border-color: rgba(168, 85, 247, 0.8) !important;
+}
+input:focus, textarea:focus, select:focus {
+  outline: none !important;
+}
+
+/* 6. Active Sidebar/Navigation Accent Gradients */
+.group.bg-gradient-to-r.from-two.to-one {
+  background: linear-gradient(90deg, rgba(168, 85, 247, 0.15) 0%, rgba(99, 102, 241, 0.05) 100%) !important;
+  border-left: 3px solid #a855f7 !important;
+  box-shadow: 0 4px 20px -2px rgba(168, 85, 247, 0.15);
+}
+
+/* 7. Hover effects for interactive elements */
+.hover\:border-one:hover {
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+.hover\:bg-one\/50:hover {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+}
+.hover\:bg-one\/20:hover {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+.hover\:bg-two\/50:hover {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+}
+.hover\:bg-two\/70:hover {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* 8. Modern subtext/neutral labels */
+.text-one {
+  color: #a1a1aa !important; /* Soft zinc-400 instead of bright purple */
+}
+.text-maintxt\/50 {
+  color: rgba(244, 244, 245, 0.5) !important;
+}
+.text-maintxt\/60 {
+  color: rgba(244, 244, 245, 0.6) !important;
+}
+.text-maintxt\/70 {
+  color: rgba(244, 244, 245, 0.7) !important;
+}
+
+/* 9. Buttons and Active components gradients override */
+.bg-gradient-to-r.from-two.to-one,
+.bg-linear-to-r.from-two.to-one,
+.bg-linear-to-br.from-two.to-one {
+  background: linear-gradient(135deg, #a855f7 0%, #6366f1 100%) !important;
+  box-shadow: 0 4px 14px 0 rgba(168, 85, 247, 0.3) !important;
+  color: #ffffff !important;
+}
+.bg-gradient-to-r.from-two.to-one:hover,
+.bg-linear-to-r.from-two.to-one:hover,
+.bg-linear-to-br.from-two.to-one:hover {
+  background: linear-gradient(135deg, #b566ff 0%, #7579ff 100%) !important;
+  box-shadow: 0 6px 20px 0 rgba(168, 85, 247, 0.4) !important;
+}
+
+/* 10. Dashboard filter tabs overrides */
+.hidden.sm\:flex.space-x-1.bg-two\/70.p-1.rounded-xl {
+  background-color: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* 11. Custom Scrollbar for modern aesthetics */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+@tailwind utilities;
